@@ -15,3 +15,10 @@ docker run \
 		--name hello-world-printer-dev \
 		-p 5000:5000 \
 		-d hello-world-printer-isit
+
+TAG=$(USERNAME)/hello-world-printer-isit
+docker_push: docker_build 
+	@docker login --username $(USERNAME) --password $${DOCKER_PASSWORD}; \
+	docker tag hello-world-printer-isit $(TAG); \
+	docker push $(TAG); \
+	docker logout;
