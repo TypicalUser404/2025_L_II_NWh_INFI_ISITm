@@ -3,6 +3,7 @@ jobs:
     build-and-test:
         machine:
             image: ubuntu-2004:current
+            docker_layer_caching: true 
         steps:
             - checkout
             - run: make deps
