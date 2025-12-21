@@ -3,7 +3,7 @@ jobs:
     build-and-test:
         machine:
             image: ubuntu-2004:current
-            docker_layer_caching: true 
+            docker_layer_caching: true
         steps:
             - checkout
             - run: make deps
@@ -11,7 +11,7 @@ jobs:
             - run: make lint
             - run: make docker_build
             - run: make docker_push
-workflows: 
+workflows:
     basic:
         jobs:
             - build-and-test
