@@ -19,7 +19,7 @@ docker run \
 TAG=$(typicaluser404)/hello-world-printer
 # Poprawiona sekcja docker_push (CI-friendly)
 docker_push: docker_build
-	@echo "$$dckr_pat_AUBzeQg9KpHB1NmMBPWaqPRH9ZI" | docker login -u typicaluser404 --password-stdin
+	@echo "$$DOCKER_TOKEN" | docker login -u typicaluser404 --password-stdin
 	docker tag hello-world-printer $(TAG)
 	docker push $(TAG)
 	docker logout
